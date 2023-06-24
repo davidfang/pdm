@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pdm/models/user.dart';
 import 'package:pdm/providers/user_provider.dart';
+import 'package:pdm/routes/app_router.dart';
+import 'package:pdm/screens/home/home.dart';
+import 'package:pdm/screens/home/intro.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -20,7 +23,10 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: MyHomePage(),
+        // home: MyHomePage(),
+        home: Home(),
+        onGenerateRoute: AppRouter.generateRoute,
+         initialRoute: '/intro',
       ),
     );
   }
@@ -51,7 +57,7 @@ class MyHomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 final newUser = User(
-                  id: '1',
+                  id: 1,
                   name: 'John Doe',
                   email: 'johndoe@example.com',
                 );
